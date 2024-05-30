@@ -4,8 +4,8 @@
 
 ### How to use this repo's code:
 - git clone the repo
-- Run "Python -m venv .venv" -> to create .venv folder inside the project
-- Run ".\.venv\Scripts\activate" -> activate the virtualenv for this project (→ We’re now using the virtual environment!)
+- Run python -m venv .venv -> to create .venv folder inside the project
+- Run .\.venv\Scripts\activate -> activate the virtualenv for this project (→ We’re now using the virtual environment!)
 
 #### activate virtualenv -> install:
 - chatterbot
