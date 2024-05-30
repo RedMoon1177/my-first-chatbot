@@ -8,7 +8,7 @@
 - Run .\\.venv\Scripts\activate -> activate the virtualenv for this project (→ We’re now using the virtual environment!)
 
 #### After activating virtualenv -> then install:
-- chatterbot
+- chatterbot (https://chatterbot.readthedocs.io/en/stable/)
 - chatterbot-corpus
 - pyyaml #python -m spacy download en_core_web_sm
 - spacy
