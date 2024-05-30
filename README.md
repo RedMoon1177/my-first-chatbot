@@ -8,12 +8,16 @@
 - Run .\\.venv\Scripts\activate -> activate the virtualenv for this project (→ We’re now using the virtual environment!)
 
 #### After activating virtualenv -> then install:
-- chatterbot (https://chatterbot.readthedocs.io/en/stable/)
-- chatterbot-corpus
-- pyyaml #python -m spacy download en_core_web_sm
-- spacy
-- jupyter
-- flask
+1. chatterbot (https://chatterbot.readthedocs.io/en/stable/)
+2. chatterbot-corpus 
+3. run "python -m chatterbot_corpus download english" (downloading the English Corpus)
+(this is a built-in corpus of conversational data for training chatbots in different languages, including English)
+- pyyaml (run pip install PyYAML==3.13)
+- Another option for training data: use English language model for spaCy, a popular natural language processing (NLP) library in Python. 
+   - install spacy -> run "python -m spacy download en"
+4. jupyter
+5. flask
+6. pint (a Python package to define, operate and manipulate physical quantities)
 
 (for example: Run "pip install chatterbot")
 

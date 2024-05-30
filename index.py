@@ -1,21 +1,18 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
-bot = ChatBot("chatbot", read_only=False, logic_adapters=["chatterbot.logic.BestMatch"])
+bot = ChatBot("chatbot", read_only=False,
+              logic_adapters=[
+                  {
+                      "import_path": "chatterbot.logic.BestMatch",
+                      "default_response": "Sorry, I don't have an answer.",
+                      "maximum_similarity_threshold": 0.9
+                  }
+              ]
+              )
 
-# list to train is a list of pairs of [ user's input - chatbot's response " ]
-list_to_train = [
-                    "Hi!",
-                    "Hi there!",
-                    "What's your name?",
-                    "I'm a chatbot.",
-                    "How old are you?",
-                    "I'm ageless!",
-]
-
-list_trainer = ListTrainer(bot)
-
-list_trainer.train(list_to_train)
+trainer = ChatterBotCorpusTrainer(bot)
+trainer.train("chatterbot.corpus.english")
 
 while True:
     user_response = input("User: ")
