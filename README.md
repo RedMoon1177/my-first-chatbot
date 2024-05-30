@@ -28,3 +28,6 @@ Step 2: Update your code: Modify your code to load the full model name instead o
 
 #### To run the script using: 
 - Run python index.py
+
+#### Learning from Youtube: 
+https://www.youtube.com/playlist?list=PLg4ez-XXTcoMOktk8RU-QEIG_nFuyZdRu
