@@ -7,13 +7,15 @@
 - Run python -m venv .venv -> to create .venv folder inside the project
 - Run .\\.venv\Scripts\activate -> activate the virtualenv for this project (→ We’re now using the virtual environment!)
 
-#### activate virtualenv -> install:
+#### After activating virtualenv -> then install:
 - chatterbot
 - chatterbot-corpus
 - pyyaml #python -m spacy download en_core_web_sm
 - spacy
 - jupyter
 - flask
+
+(for example: Run "pip install chatterbot")
 
 Note that: if you got the fact that the shortcut 'en' for loading spaCy models is no longer supported as of spaCy v3.0. Instead, you need to use the full name of the model, such as 'en_core_web_sm'.
 
