@@ -22,9 +22,8 @@ Step 1: Install the spaCy model: First, make sure the en_core_web_sm model is in
    - python -m spacy download en_core_web_sm
 
 Step 2: Update your code: Modify your code to load the full model name instead of the shortcut. Here’s how you can do that:
-
-    - Open the file C:\WEBDEV\my-first-chatbot\.venv\lib\site-packages\chatterbot\tagging.py and change the following line: 
-"self.nlp = spacy.load(self.language.ISO_639_1.lower())" to "self.nlp = spacy.load("en_core_web_sm")"
+Open the file C:\WEBDEV\my-first-chatbot\.venv\lib\site-packages\chatterbot\tagging.py and change the following line: 
+    - "self.nlp = spacy.load(self.language.ISO_639_1.lower())" to "self.nlp = spacy.load("en_core_web_sm")"
 
 #### To run the script using: 
 - Run python index.py
