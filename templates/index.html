@@ -69,10 +69,11 @@
 </head>
 
 <body>
-    <h1>Chatbot App</h1>
+    <h1>Weather Chatbot App</h1>
     <div>
         <div id="chatbox">
             <p class="botText">Chatbot: <span>Hi there!</span></p>
+            <p class="botText">Chatbot: <span>Which city do you want to know its weather forcast?</span></p>
         </div>
         <div id="userInput">
             <input id="textInput" type="text" name="userMessage" placeholder="Type your message..." />
@@ -84,13 +85,15 @@
     <script>
         function getUserResponse() {
 
-            var userText = $('#textInput').val(); // we will send this text to Flask as well as show it on the screen
+            var userText = $('#textInput').val(); // using JQuerry to get the text value of user input
             var userHTML = "<p class='userText'>User: <span>" + userText + "</span></p>";
             $('#textInput').val("");
             $('#chatbox').append(userHTML);
             document.getElementById("userInput").scrollIntoView({ block: 'start', behavior: 'smooth' });
+
+            // using JQuerry to send GET request to Flask -> when "done" -> receive the reponse data from chatbot
             $.get("/get", { userMessage: userText }).done(function (data) {
-                var botHTML = "<p class='botText'>Chatbot: <span>" + data + "</span></p>"
+                var botHTML = "<p class='botText'>Chatbot: <span> temperature: " + data.main.temp + " - conditions: " + data.weather[0].description + " - humidity: " + data.main.humidity +"</span></p>"
                 $('#chatbox').append(botHTML);
             })
         }
