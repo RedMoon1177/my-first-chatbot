@@ -1,5 +1,5 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -14,8 +14,22 @@ bot = ChatBot("chatbot", read_only=False,
               ]
               )
 
-trainer = ChatterBotCorpusTrainer(bot)
-trainer.train("chatterbot.corpus.english")
+# trainer = ChatterBotCorpusTrainer(bot)
+# trainer.train("chatterbot.corpus.english")
+
+trainer = ListTrainer(bot)
+trainer.train([
+    "hello",
+    "hello!",
+    "How's it going?",
+    "not bad!",
+    "How can I lose weight?",
+    "You've got to work out mate!",
+    "Any suggestion?",
+    "Yes, 1- work out 2- stop eating everything 3- follow a keto diet",
+    "Other suggestions?",
+    "Please visit this link for more info: https://example.com"
+])
 
 # ROUTING WEB PAGES
 @app.route("/")

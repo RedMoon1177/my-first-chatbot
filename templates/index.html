@@ -17,7 +17,7 @@
         #chatbox {
             margin-left: auto;
             margin-right: auto;
-            width: 40%;
+            width: 80%;
             margin-top: 50px;
         }
 
@@ -26,7 +26,7 @@
             font-size: 16px;
             text-align: left;
             line-height: 25px;
-            color: blue;
+            color: green;
         }
 
         #userInput {
@@ -38,19 +38,32 @@
         }
 
         #textInput {
-            border-bottom: 3px solid #657889;
+            border: 3px white;
+            border-bottom: 3px dotted #657889;
             font-family: monospace;
             font-size: 16px;
+            width: 60%;
+            padding: 20px;
+            color: blue;
         }
 
         #buttonInput {
-            padding: 5px;
+            padding: 10px;
             font-family: monospace;
             font-size: 16px;
+            border: 3px solid #3333;
+            background-color: green;
+            color: white;
+            border-radius: 10px;
         }
 
         h1 {
             text-align: center;
+            color: green;
+        }
+
+        .userText {
+            text-align: right;
         }
     </style>
 </head>
@@ -59,7 +72,7 @@
     <h1>Chatbot App</h1>
     <div>
         <div id="chatbox">
-            <p class="botText"><span>Hi there!</span></p>
+            <p class="botText">Chatbot: <span>Hi there!</span></p>
         </div>
         <div id="userInput">
             <input id="textInput" type="text" name="userMessage" placeholder="Type your message..." />
@@ -72,12 +85,12 @@
         function getUserResponse() {
 
             var userText = $('#textInput').val(); // we will send this text to Flask as well as show it on the screen
-            var userHTML = "<p class='userText'><span>" + userText + "</span></p>";
+            var userHTML = "<p class='userText'>User: <span>" + userText + "</span></p>";
             $('#textInput').val("");
             $('#chatbox').append(userHTML);
             document.getElementById("userInput").scrollIntoView({ block: 'start', behavior: 'smooth' });
             $.get("/get", { userMessage: userText }).done(function (data) {
-                var botHTML = "<p class='botText'><span>" + data + "</span></p>"
+                var botHTML = "<p class='botText'>Chatbot: <span>" + data + "</span></p>"
                 $('#chatbox').append(botHTML);
             })
         }
