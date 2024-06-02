@@ -34,5 +34,11 @@ Open the file C:\WEBDEV\my-first-chatbot\.venv\lib\site-packages\chatterbot\tagg
 #### To run the script using: 
 - Run python index.py
 
+#### Set environment variables:
+- On Windows:
+Open Command Prompt or PowerShell and run: setx OPENWEATHER_API_KEY "your_api_key_here"
+- On macOS/Linux:
+Open your terminal and run: export OPENWEATHER_API_KEY="your_api_key_here"
+
 #### Learning from Youtube: 
 https://www.youtube.com/playlist?list=PLg4ez-XXTcoMOktk8RU-QEIG_nFuyZdRu
