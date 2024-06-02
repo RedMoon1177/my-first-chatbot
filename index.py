@@ -2,6 +2,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
 from flask import Flask, render_template, request # this is request Class from Flask
 import requests # This is a third-party Python library that provides a simple and elegant way to make HTTP requests.
+import os
 
 app = Flask(__name__)
 
@@ -44,7 +45,9 @@ def get_chatbot_response():
     userText = request.args.get('userMessage')
 
     # GET request from module requests
-    rawData = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+ userText +"&appid=064f1afb235afd36530ee0e6825fc231")
+    # Get the API key from the environment variable
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    rawData = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+ userText +"&appid="+api_key)
     result = rawData.json()
 
     # return str(bot.get_response(userText))
